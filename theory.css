@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("images/theme.png");
+    background-size: inherit;
+}
+
+@font-face {
+    font-family: navFont;
+    src: url(fonts/BAHNSCHRIFT.TTF);
+}
+
+@font-face {
+    font-family: mainFont;
+    src: url(fonts/Lobster-Regular.ttf);
+}
+
+header {
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #AAF0D1;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: navFont;
+    padding-left: 0; 
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #51b96b;
+}
+
+#main_menu{
+    background-color: #AAF0D1;
+    text-align: center;
+    width: 80%;
+    margin:  50px auto;
+    padding: 10px;
+    border: 1px solid black;
+    font-family: mainFont;
+}
+
+#images {
+    display: flex;
+}
+
+.elem {
+    text-align: center;
+    margin: auto; 
+    font-size: 30px;
+}
+
+#exampleFilm {
+    text-align: center; 
+}
+
+#exampleFilm h2 {
+    font-family: navFont; 
+    margin: 100px 0 30px 0; 
+}
+
+footer{
+    background-color: #AAF0D1;
+    text-align: center;
+    font-family: navFont;
+    font-size: 20px;
+    padding: 15px;
+    margin: 100px 0 0 0;
+}
+
+#button {
+    background-color: #AAF0D1;
+    width: 50%; 
+    text-align: center;
+    padding: 20px;
+    font-family: navFont;
+    font-size: 30px;
+    margin-top:75px;
+    margin-left:25%;
+    margin-bottom: 175px;
+    border: black solid 1px;
+}
+
+#left{
+    width: 33%;
+    height: auto;
+    float: left;
+    text-align: center;
+
+}
+
+#middle{
+    width: 33%;
+    height: auto;
+    float: left;
+    text-align: center;
+}
+
+#right{
+    width: 33%;
+    height: auto;
+    float: left;
+    text-align: center;
+}
+
+.avatar{
+    display: block;
+    margin: 30px;
+    text-align: center;
+}
+
+.description {
+    margin-top:75px;
+    margin-left:25px;
+    margin-bottom: 20%;
+    max-width: 80%; 
+    font-size:25px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    height: 700px;
+}
+
+.container {
+    display: inline-block; 
+    text-align: center; 
+    margin: 0 auto;
+    border: 1px solid black; 
+    width: 50%;
+    margin-top: 20px;
+    background-color: #AAF0D1;
+    height: auto;
+    font-family: navFont;
+    font-size: 20px;
+    height: 90%;
+}
+
