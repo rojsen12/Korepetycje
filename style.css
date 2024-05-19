@@ -2,7 +2,20 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("images/theme.png");
-    background-size: inherit;
+    background-size: cover;
+    animation: scrollAnimation 30s linear infinite alternate;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+
+@keyframes scrollAnimation {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
 }
 
 @font-face {
@@ -40,11 +53,55 @@ li a {
     text-align: center;
     padding: 30px;
     text-decoration: none;
+    position: relative;
+}
+
+li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.5s;
+    position: absolute;
+    left: 15%;
+    bottom: 20px; 
 }
 
 li a:hover {
     background-color: #51b96b;
 }
+
+li a:hover::after {
+    width: 70%;
+}
+
+#limit{
+    width:fit-content;
+    margin: auto;
+}
+
+.typewriter {
+    width: fit-content;
+    overflow: hidden; 
+    border-right: .15em solid orange; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    animation: 
+      typing 5s steps(50, end), 
+      blink-caret .5s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% } 
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
 
 #main_menu{
     background-color: #AAF0D1;
@@ -64,6 +121,37 @@ li a:hover {
     text-align: center;
     margin: auto; 
     font-size: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.elem img {
+    transition: transform 0.3s; 
+}
+
+.elem:hover img {
+    transform: scale(1.18);
+}
+
+.elem:nth-child(1) {
+    animation-delay: 0.66s;
+}
+
+.elem:nth-child(2) {
+    animation-delay: 1.33s;
+}
+
+.elem:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 #exampleFilm {
@@ -84,13 +172,33 @@ footer{
     margin: 100px 0 0 0;
 }
 
-#button{
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+button {
     background-color: #AAF0D1;
-    width: 25%;
+    width: 30%;
     text-align: center;
     padding: 20px;
     font-family: navFont;
     font-size: 30px;
     margin: 50px auto 0;
     border: black solid 1px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #AAF0D1;
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(127, 255, 212, 0.5); 
 }
