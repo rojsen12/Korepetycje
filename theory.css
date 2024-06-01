@@ -15,9 +15,11 @@ body {
     src: url(fonts/Lobster-Regular.ttf);
 }
 
+
 header {
     width: 100%;
 }
+
 
 
 
@@ -158,6 +160,18 @@ main {
     height: 700px;
 }
 
+@keyframes slideInFromUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
 .container {
     display: inline-block; 
     text-align: center; 
@@ -170,5 +184,6 @@ main {
     font-family: navFont;
     font-size: 20px;
     height: 90%;
+    animation: slideInFromUp 1.5s ease-in-out;
 }
 

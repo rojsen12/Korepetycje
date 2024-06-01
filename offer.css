@@ -3,6 +3,7 @@ body {
     padding: 0;
     background-image: url("images/theme.png");
     background-size: inherit;
+    animation: scrollAnimation 30s linear infinite alternate;
 }
 
 @font-face {
@@ -101,19 +102,26 @@ footer{
     margin: 100px 0 0 0;
 }
 
+
+#button:hover {
+    transform: scale(1.2);
+}
+
 #button {
+    transition: all 1s;
     background-color: #AAF0D1;
     width: 50%; 
     text-align: center;
     padding: 20px;
     font-family: navFont;
     font-size: 30px;
-    margin-top:75px;
-    margin-left:25%;
+    margin-top: 75px;
+    margin-left: 25%;
     margin-bottom: 175px;
     border: black solid 1px;
-}
+    animation: slideInFromLeft3 3s ease-in-out;
 
+}
 #left{
     width: 22%;
     height: auto;
@@ -133,11 +141,42 @@ footer{
     height: auto;
     float: left;
 }
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideInFromLeft2 {
+    0% {
+        transform: translateX(-33%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideInFromLeft3 {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
-.avatar{
+.avatar {
     display: block;
     margin: 30px;
     text-align: center;
+    animation: slideInFromLeft 1.5s ease-in-out;
 }
 
 .description {
@@ -146,6 +185,7 @@ footer{
     margin-bottom: 20%;
     max-width: 80%; 
     font-size:25px;
+    animation: slideInFromLeft2 3s ease-in-out;
 }
 
 main {
