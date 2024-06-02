@@ -99,7 +99,15 @@ li a:hover::after {
     font-size: 20px;
     font-family: navFont;
     margin: auto auto 50px auto;
-    translate: transform 1s; 
+    
+}
+
+#dc img{
+    transition: transform 1s ease-in-out;
+}
+
+#dc:hover img{
+    transform: rotate(360deg);
 }
 
 #fb{
@@ -112,6 +120,14 @@ li a:hover::after {
     font-family: navFont;
     margin: auto;
     font-family: navFont;
+}
+
+#fb img{
+    transition: transform 1s ease-in-out;
+}
+
+#fb:hover img{
+    transform: rotate(360deg);
 }
 
 #map {
