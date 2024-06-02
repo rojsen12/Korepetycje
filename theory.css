@@ -1,8 +1,26 @@
-body {
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     background-image: url("images/theme.png");
-    background-size: inherit;
+    background-size:auto;
+    animation: scrollAnimation 30s linear infinite alternate;
+}
+
+@media only screen and (max-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+
+@keyframes scrollAnimation {
+    0% { background-position: 100% 0; } /* Z prawej strony */
+    100% { background-position: 0 0; } /* Do lewej strony */
 }
 
 @font-face {
@@ -20,8 +38,20 @@ header {
     width: 100%;
 }
 
+main {
+    flex: 1; 
+    display: flex;
+    justify-content: space-around;
+}
 
-
+footer {
+    background-color: #AAF0D1;
+    text-align: center;
+    font-family: navFont;
+    font-size: 20px;
+    padding: 15px;
+    margin: 0;
+}
 
 ul {
     list-style-type: none;
@@ -83,26 +113,17 @@ li a:hover::after {
 
 .elem {
     text-align: center;
-    margin: auto; 
+    margin: auto;
     font-size: 30px;
 }
 
 #exampleFilm {
-    text-align: center; 
+    text-align: center;
 }
 
 #exampleFilm h2 {
-    font-family: navFont; 
-    margin: 100px 0 30px 0; 
-}
-
-footer{
-    background-color: #AAF0D1;
-    text-align: center;
     font-family: navFont;
-    font-size: 20px;
-    padding: 15px;
-    margin: 100px 0 0 0;
+    margin: 100px 0 30px 0;
 }
 
 #button {
@@ -171,7 +192,14 @@ main {
     }
 }
 
-
+hr.double {
+    border: none;
+    height: 3px;
+    background: none;
+    border-top: 1px double #000;
+    color: black;
+}
+  
 .container {
     display: inline-block; 
     text-align: center; 
@@ -186,4 +214,3 @@ main {
     height: 90%;
     animation: slideInFromUp 1.5s ease-in-out;
 }
-

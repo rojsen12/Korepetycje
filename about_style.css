@@ -2,9 +2,20 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("images/theme.png");
-    background-size: inherit;
+    background-size:auto;
+    animation: scrollAnimation 30s linear infinite alternate;
 }
 
+@media only screen and (max-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+
+@keyframes scrollAnimation {
+    0% { background-position: 100% 0; } /* Z prawej strony */
+    100% { background-position: 0 0; } /* Do lewej strony */
+}
 @font-face {
     font-family: navFont;
     src: url(fonts/BAHNSCHRIFT.TTF);
@@ -13,6 +24,39 @@ body {
 @font-face {
     font-family: mainFont;
     src: url(fonts/Lobster-Regular.ttf);
+}
+
+@keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+
+    0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
 }
 
 header {
@@ -69,14 +113,78 @@ li a:hover::after {
     margin: 60px auto;
 }
 
-#singleCreator{
-    margin: auto;
-    width:40%;
-    text-align: center;
-    font-family: navFont;
-    font-size: 20px;
+#creators ul {
+    list-style-type: circle;
+    margin: 20px 0;
+    padding-left: 20px;
 }
 
+#creators li {
+    font-size: 20px;
+    font-weight: normal;
+    font-family: inherit;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.flip-card {
+    width: 40%;
+    height: 450px;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 60px;
+    font-family: navFont;
+    font-size: 20px;
+    perspective: 1000px;
+    margin: 50px;
+    animation: bounceIn 2s ease-in-out;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; 
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-front {
+    background-color: #AAF0D1;
+    color: black;
+    border: black 2px solid;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.flip-card-back {
+    background-color: #AAF0D1;
+    color: black;
+    transform: rotateY(180deg);
+    border: black 2px solid;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.flip-card-back p {
+    text-align: justify;
+}
 
 footer {
     background-color: #AAF0D1;

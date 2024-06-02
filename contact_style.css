@@ -2,9 +2,20 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("images/theme.png");
-    background-size: inherit;
+    background-size:auto;
+    animation: scrollAnimation 30s linear infinite alternate;
 }
 
+@media only screen and (max-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+
+@keyframes scrollAnimation {
+    0% { background-position: 100% 0; } /* Z prawej strony */
+    100% { background-position: 0 0; } /* Do lewej strony */
+}
 @font-face {
     font-family: navFont;
     src: url(fonts/BAHNSCHRIFT.TTF);
@@ -62,44 +73,70 @@ li a:hover {
 li a:hover::after {
     width: 70%;
 }
+
 #contact {
-    margin: 3% auto;
-    width:80%;
-    display: flex;
+    margin: 5% auto;
+    width:30%;
+    background-color: #AAF0D1;
+    padding: 25px;
+    border-radius: 15px;
+    border: black solid 2px;
+    font-family: navFont;
+    gap: 20px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+#contact {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
 }
 
 #dc{
     display: flex; 
-    width:50%;
+    width: fit-content;
     flex-direction: column; 
     align-items: center; 
     text-align: center;
     font-size: 20px;
     font-family: navFont;
+    margin: auto auto 50px auto;
+    translate: transform 1s; 
 }
 
 #fb{
     display: flex; 
-    width:50%;
+    width:fit-content;
     flex-direction: column; 
     align-items: center; 
     text-align: center;
     font-size: 20px;
     font-family: navFont;
-}
-
-#map{
-    width: fit-content;
     margin: auto;
-    text-align: center;
-    display: flex;
+    font-family: navFont;
 }
 
-#mapInfo{
-    align-items: center; 
+#map {
+    width: fit-content;
+    margin:auto;
     text-align: center;
+    transition: transform 0.5s;
+    padding: 25px;
     font-size: 20px;
+    font-weight: 700;
     font-family: navFont;
+    border-radius: 15px;
+    border: black solid 2px;
+    background-color: #AAF0D1;
+    animation: slideInFromRight 1s ease-out;
+}
+
+#map iframe {
+    border-radius: 15px;
+    transition: transform 0.7s, box-shadow 0.5s;
+}
+
+#map:hover iframe {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
 footer {
@@ -112,4 +149,30 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+#main{
+    display: flex;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }

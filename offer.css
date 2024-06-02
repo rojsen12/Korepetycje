@@ -2,10 +2,20 @@ body {
     margin: 0;
     padding: 0;
     background-image: url("images/theme.png");
-    background-size: inherit;
+    background-size:auto;
     animation: scrollAnimation 30s linear infinite alternate;
 }
 
+@media only screen and (max-width: 1024px) {
+    body {
+        background-attachment: fixed;
+    }
+}
+
+@keyframes scrollAnimation {
+    0% { background-position: 100% 0; } /* Z prawej strony */
+    100% { background-position: 0 0; } /* Do lewej strony */
+}
 @font-face {
     font-family: navFont;
     src: url(fonts/BAHNSCHRIFT.TTF);
@@ -99,7 +109,7 @@ footer{
     font-family: navFont;
     font-size: 20px;
     padding: 15px;
-    margin: 100px 0 0 0;
+    margin: 0;
 }
 
 
@@ -191,4 +201,21 @@ footer{
 main {
     display: flex;
     justify-content: space-around;
+}
+
+#scrollUpBtn, #scrollDownBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px;
+    font-size: 40px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+#scrollUpBtn {
+    bottom: 100px;
 }
